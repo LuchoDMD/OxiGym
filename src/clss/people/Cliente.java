@@ -22,6 +22,7 @@ public class Cliente extends Persona
         this.memb = memb;
         this.couta = couta;
     }
+
     /** GETTERS & SETTERS **/
     public Membresias getMemb()
     {
@@ -38,6 +39,7 @@ public class Cliente extends Persona
     {
         this.couta = couta;
     }
+
     /** OTHERS **/
     @Override
     public String toString() {

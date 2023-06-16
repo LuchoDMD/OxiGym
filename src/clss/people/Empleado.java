@@ -22,6 +22,7 @@ public abstract class Empleado extends Persona
     }
     public abstract int salarioMensual();
     /** OTHERS **/
+
     @Override
     public String toString() {
         return "Empleado{" +

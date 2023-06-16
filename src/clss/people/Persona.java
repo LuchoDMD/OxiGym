@@ -2,9 +2,11 @@ package clss.people;
 
 import clss.use.Telefono;
 
-public class Persona /**FALTA LA FORMA DE VOLVERLA ABSTRACTA*/
+import java.util.Objects;
+
+public class Persona
 {
-    protected String lname, fname;
+    protected String apellido, nombre;
     protected int dni;
     protected Telefono contacto;
 
@@ -13,26 +15,26 @@ public class Persona /**FALTA LA FORMA DE VOLVERLA ABSTRACTA*/
     {
 
     }
-    public Persona(String lname, String fname, int dni, Telefono contacto)
+    public Persona(String apellido, String nombre, int dni, Telefono contacto)
     {
-        this.lname = lname;
-        this.fname = fname;
+        this.apellido = apellido;
+        this.nombre = nombre;
         this.dni = dni;
         this.contacto = contacto;
     }
 
     /** GETTERS & SETTERS **/
-    public String getLname() {
-        return lname;
+    public String getApellido() {
+        return apellido;
     }
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
-    public String getFname() {
-        return fname;
+    public String getNombre() {
+        return nombre;
     }
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setNombre(String fname) {
+        this.nombre = nombre;
     }
     public int getDni() {
         return dni;
@@ -49,8 +51,19 @@ public class Persona /**FALTA LA FORMA DE VOLVERLA ABSTRACTA*/
 
     /** OTHERS **/
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Persona persona = (Persona) o;
+        return dni == persona.dni && Objects.equals(apellido, persona.apellido) && Objects.equals(nombre, persona.nombre);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(apellido, nombre, dni);
+    }
+    @Override
     public String toString() {
-        return  "\n>Apellido/Nombre.: "+lname+" "+fname+
+        return  "\n>Apellido/Nombre.: "+nombre+" "+apellido+
                 "\n>D.N.I...........: "+dni+
                 "\n>Contacto"+getContacto().toString();
     }
