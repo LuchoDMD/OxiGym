@@ -5,7 +5,9 @@ import clss.use.Telefono;
 public abstract class Empleado extends Persona
 {
     private int sueldoMin;
-
+    String lname;
+    String fname;
+    
     /** BUILDERS **/
     public Empleado()
     {
@@ -25,6 +27,7 @@ public abstract class Empleado extends Persona
 
     @Override
     public String toString() {
+        
         return "Empleado{" +
                 "sueldoMin=" + sueldoMin +
                 ", lname='" + lname + '\'' +

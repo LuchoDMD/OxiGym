@@ -1,0 +1,9 @@
+[ {
+  "id" : 1,
+  "tipo" : "SUM",
+  "disciplinas" : [ ]
+}, {
+  "id" : 2,
+  "tipo" : "SUM",
+  "disciplinas" : [ ]
+} ]
