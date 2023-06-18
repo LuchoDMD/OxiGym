@@ -1,14 +1,10 @@
 package clss.UI;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +13,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import clss.place.Sala;
 import clss.place.TipoSalas;
 
-public class AdminUI implements java.io.Serializable {
+public class AdminUI extends generalUI implements java.io.Serializable {
 
     private String usuario;
 
@@ -80,7 +76,7 @@ public class AdminUI implements java.io.Serializable {
         return new Sala(id, tipo);
     }
 
-    // devuelve la cantidad de salas de un tipo especifico en el archivo salas.json
+    // devuelve la cantidad de salas de un tipo especifico en el archivo salas.json // TODO: BORRAR SI SE VUELVE OBSOLETA
     public int getSalas(List<Sala> salas, TipoSalas tipo)
     {
         int cant = 0;
@@ -96,46 +92,11 @@ public class AdminUI implements java.io.Serializable {
         return cant;
     }
 
-    // escribe las listas de salas en el archivo salas.json
-    private void listToSalasJson(List<Sala> salas) {
-        File file = new File("salas.json");
-        file.setWritable(true);
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT); // le da una estructura mas legible
-
-        try {
-            mapper.writeValue(file, salas);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            file.setWritable(false);
-        }
-    }
-
-    // devuelve una lista de las salas del archivo salas.json, devuelve null si el archivo no existe
-    private List<Sala> readSalasJson() {
-        File file = new File("salas.json");
-        file.setReadable(true);
-
-        if (!file.exists())
-            return null;
-
-        ObjectMapper mapper = new ObjectMapper();
-        
-        List<Sala> salas = null;
-        try {
-            salas = mapper.readValue(file, new TypeReference<List<Sala>>() {});
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return salas;
-    }
-
     // agrega salas al archivo salas.json
-    public void addSala(Sala s) {
+    public void addSala() {
+        Sala s = getSala();
         // lee el archivo salas.json
-        List<Sala> salas = readSalasJson();
+        List<Sala> salas = (List<Sala>) readListJson("salas.json");
         // si el archivo no existe, crea una lista vacia
         if (salas == null)
             salas = new ArrayList<Sala>();
@@ -143,7 +104,8 @@ public class AdminUI implements java.io.Serializable {
         s.setId(salas.size() + 1);
         salas.add(s);
         // escribe la lista en el archivo salas.json
-        listToSalasJson(salas);
+        listToJson(salas, "salas.json");
+        
     }
 
     

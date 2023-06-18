@@ -10,6 +10,7 @@ public class Telefono
     {
 
     }
+
     public Telefono(char tipo, short cod_Pais, short cod_Area, short num)
     {
         this.tipo = tipo;
@@ -17,6 +18,20 @@ public class Telefono
         this.cod_Area = cod_Area;
         this.num = num;
     }
+
+    // transforma una string en un telefono
+    public static Telefono parse(String s)
+    {
+        Telefono t = new Telefono();
+        String[] parts = s.split("-");
+        t.tipo = parts[0].charAt(0);
+        t.cod_Pais = Short.parseShort(parts[1]);
+        t.cod_Area = Short.parseShort(parts[2]);
+        t.num = Short.parseShort(parts[3]);
+        // TODO: agregar excepciones para error en la string
+        return t;
+    }
+
     /** GETTERS & SETTERS **/
     public short getCod_Pais() {
         return cod_Pais;

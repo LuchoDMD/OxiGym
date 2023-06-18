@@ -6,4 +6,8 @@
   "id" : 2,
   "tipo" : "SUM",
   "disciplinas" : [ ]
+}, {
+  "id" : 3,
+  "tipo" : "SUM",
+  "disciplinas" : [ ]
 } ]

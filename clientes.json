@@ -1,0 +1,12 @@
+[ {
+  "apellido" : "Messi",
+  "nombre" : "Lionel",
+  "dni" : 33016244,
+  "contacto" : {
+    "cod_Pais" : 0,
+    "cod_Area" : 0,
+    "num" : 0
+  },
+  "memb" : null,
+  "couta" : 0
+} ]
