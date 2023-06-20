@@ -14,7 +14,7 @@ import clss.people.Cliente;
 import clss.place.Sala;
 import clss.use.Telefono;
 
-public class generalUI {
+public class GeneralUI {
     
     public List<?> readListJson(String filename) {
         File file = new File(filename);

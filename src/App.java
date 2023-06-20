@@ -1,11 +1,10 @@
-import clss.UI.AdminUI;
-import clss.UI.generalUI;
+import clss.UI.GeneralUI;
 
 public class App
 {
     public static void main(String[] args)
     {
-        generalUI ui = new generalUI();
+        GeneralUI ui = new GeneralUI();
         ui.addCliente();
     }
 }

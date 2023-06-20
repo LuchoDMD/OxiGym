@@ -4,15 +4,15 @@ import java.util.Locale;
 
 public enum Disciplinas
 {
-    MAQUINA("M"),
-    NATACIÒN("N"),
-    FUTBOL("F"),
-    VOLEY("V"),
-    BASQUET("B"),
-    TAE_KWON_DO("T"),
-    JUDO("J"),
-    GIMNASIA("G"),
-    DANZA("D");
+    MAQUINA("Maquina"),
+    NATACIÒN("Natacion"),
+    FUTBOL("Futbol5"),
+    VOLEY("Voley"),
+    BASQUET("Basquet"),
+    TAE_KWON_DO("Tae-Kwon-Do"),
+    JUDO("Judo"),
+    GIMNASIA("Gimnasia"),
+    DANZA("Danza");
 
     public String abrev;
 

@@ -1,19 +1,13 @@
 package clss.UI;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
 import clss.place.Sala;
 import clss.place.TipoSalas;
 
-public class AdminUI extends generalUI implements java.io.Serializable {
+public class AdminUI extends GeneralUI implements java.io.Serializable {
 
     private String usuario;
 
