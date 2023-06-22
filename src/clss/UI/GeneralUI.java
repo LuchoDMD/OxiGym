@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import clss.people.Cliente;
+import clss.people.Empleado;
 import clss.place.Sala;
 import clss.use.Membresias;
 
@@ -32,6 +33,8 @@ public class GeneralUI {
                 list = mapper.readValue(file, new TypeReference<List<Cliente>>() {});
             } else if (filename.equals("salas.json")) {
                 list = mapper.readValue(file, new TypeReference<List<Sala>>() {});
+            } else if (filename.equals("empleados.json")) {
+                list = mapper.readValue(file, new TypeReference<List<Empleado>>() {});
             } else {
                 System.out.println("Error: filename no valido");
             }
