@@ -1,5 +1,7 @@
 package clss.people;
 
+import clss.use.Telefono;
+
 public abstract class Empleado extends Persona
 {
     private int sueldoMin;
@@ -11,15 +13,16 @@ public abstract class Empleado extends Persona
     {
 
     }
-    public Empleado(String lname, String fname, int dni, String telefono, int sueldoMin)
+    public Empleado(String lname, String fname, int dni, Telefono contacto, int sueldoMin)
     {
-        super(lname, fname, dni, telefono);
+        super(lname, fname, dni, contacto);
         this.sueldoMin = sueldoMin;
     }
     /** GETTERS & SETTERS **/
     public int getSueldoMin() {
         return sueldoMin;
     }
+    public abstract int salarioMensual();
     /** OTHERS **/
 
     @Override
@@ -30,7 +33,7 @@ public abstract class Empleado extends Persona
                 ", lname='" + lname + '\'' +
                 ", fname='" + fname + '\'' +
                 ", dni=" + dni +
-                ", contacto=" + telefono +
+                ", contacto=" + contacto +
                 '}';
     }
 }

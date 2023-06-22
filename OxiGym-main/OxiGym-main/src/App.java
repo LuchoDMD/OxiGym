@@ -1,11 +1,11 @@
-import clss.UI.UIClientes;
+import clss.UI.GeneralUI;
 
 public class App
 {
     public static void main(String[] args)
     {
-        UIClientes ui = new UIClientes();
-        ui.setVisible(true);
+        GeneralUI ui = new GeneralUI();
+        ui.addCliente();
     }
 }
 /** BUILDERS **/

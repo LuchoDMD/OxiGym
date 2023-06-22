@@ -61,8 +61,6 @@ public class Sala implements java.io.Serializable
         this.disciplinas = disciplinas;
     }
 
-
-
     @Override
     public String toString()
     {

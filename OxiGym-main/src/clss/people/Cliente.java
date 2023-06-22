@@ -1,7 +1,9 @@
 package clss.people;
 
+import java.util.List;
+
+import clss.UI.GeneralUI;
 import clss.use.Membresias;
-import clss.use.Telefono;
 
 public class Cliente extends Persona
 {
@@ -16,13 +18,13 @@ public class Cliente extends Persona
 
     }
 
-    public Cliente(String lname, String fname, int dni, Telefono contacto) {
-        super(lname, fname, dni, contacto);
+    public Cliente(String lname, String fname, int dni, String telefono) {
+        super(lname, fname, dni, telefono);
     }
 
-    public Cliente(String lname, String fname, int dni, Telefono contacto, Membresias memb, int couta)
+    public Cliente(String lname, String fname, int dni, String telefono, Membresias memb, int couta)
     {
-        super(lname, fname, dni, contacto);
+        super(lname, fname, dni, telefono);
         this.memb = memb;
         this.couta = couta;
     }
@@ -42,6 +44,33 @@ public class Cliente extends Persona
     public void setCouta(int couta) ///La cuota no se setea ver abajo
     {
         this.couta = couta;
+    }
+
+    public Object[] rowForTable() {
+        Object[] row = {this.getNombre(), this.getApellido(), this.getDni(), this.getMemb()};
+        return row;
+    }
+
+    public static Cliente getClientePorDni(int dni) {
+        List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
+        for (Cliente c: clientes) {
+            if (c.getDni() == dni) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public static boolean eliminarClientePorDni(int dni) {
+        List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
+        for (Cliente c: clientes) {
+            if (c.getDni() == dni) {
+                clientes.remove(c);
+                GeneralUI.listToJson(clientes, "clientes.json");
+                return true;
+            }
+        }
+        return false;
     }
 
     /** OTHERS **/

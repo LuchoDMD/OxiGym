@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,11 +12,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import clss.people.Cliente;
 import clss.place.Sala;
-import clss.use.Membresias;
+import clss.use.Telefono;
 
 public class GeneralUI {
     
-    public static List<?> readListJson(String filename) {
+    public List<?> readListJson(String filename) {
         File file = new File(filename);
         file.setReadable(true);
 
@@ -41,7 +42,7 @@ public class GeneralUI {
         return list;
     }
     
-    public static void listToJson(List<?> list, String filename) {
+    public void listToJson(List<?> list, String filename) {
         File file = new File(filename);
         file.setWritable(true);
 
@@ -55,15 +56,46 @@ public class GeneralUI {
         } finally {
             file.setWritable(false);
         }
+
+    }    
+
+    // devuelve un cliente con los datos ingresados por el usuario
+    public Cliente getCliente() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del cliente: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el apellido del cliente: ");
+        String apellido = sc.nextLine();
+        System.out.println("Ingrese el dni del cliente: ");
+        int dni = sc.nextInt();
+        Telefono telefono = new Telefono();
+        Cliente c = new Cliente(apellido, nombre, dni, telefono);
+        sc.close();
+        return c;
+    }
+    public Cliente getEmpleado() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del empleado: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el apellido del empleado: ");
+        String apellido = sc.nextLine();
+        System.out.println("Ingrese el dni del empleado: ");
+        int dni = sc.nextInt();
+        Telefono telefono = new Telefono();
+        Cliente c = new Cliente(apellido, nombre, dni, telefono);
+        sc.close();
+        return c;
     }
 
-    public static void addCliente(Cliente c) {
+    public void addCliente() {
         List<Cliente> clientes = (List<Cliente>) readListJson("clientes.json");
         // si el archivo no existe crea una lista vacia
         if (clientes == null) 
             clientes = new ArrayList<Cliente>();
+        
+        Cliente c = getCliente();
         clientes.add(c);
         listToJson(clientes, "clientes.json");
     }
-    
+
 }

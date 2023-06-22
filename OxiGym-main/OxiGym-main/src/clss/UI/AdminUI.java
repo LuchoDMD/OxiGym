@@ -20,7 +20,7 @@ public class AdminUI extends GeneralUI implements java.io.Serializable {
     }
 
     // devuelve un objeto Sala con los datos ingresados por el usuario
-    private Sala getSala() {
+    public Sala getSala() {
         // inicializa los atributos de la sala
         TipoSalas tipo;
 
@@ -95,12 +95,17 @@ public class AdminUI extends GeneralUI implements java.io.Serializable {
         if (salas == null)
             salas = new ArrayList<Sala>();
         // agrega la sala a la lista y le asigna un id único
-        s.setId(salas.size() + 1); // TODO: modificar generador id
+        s.setId(salas.size() + 1);
         salas.add(s);
         // escribe la lista en el archivo salas.json
         listToJson(salas, "salas.json");
+        
     }
 
-    
-    
+    /**
+     Alta y baja
+     Calcular ganancias
+     * */
+
+
 }

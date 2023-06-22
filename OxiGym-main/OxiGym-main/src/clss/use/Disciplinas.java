@@ -20,6 +20,9 @@ public enum Disciplinas
     {
         this.abrev=abrev.toUpperCase(Locale.ROOT).substring(0);
     }
+    public static Disciplinas stringtoEnum(String res){
+        return Disciplinas.valueOf(res);
+    }
     public String getAbrev()
     {
         return abrev;
