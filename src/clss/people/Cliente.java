@@ -1,5 +1,6 @@
 package clss.people;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import clss.UI.GeneralUI;
@@ -46,6 +47,17 @@ public class Cliente extends Persona
         this.couta = couta;
     }
 
+    // agrega un cliente al archivo de clientes
+    public static void addCliente(Cliente c) {
+        List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
+        // si el archivo no existe crea una lista vacia
+        if (clientes == null) 
+            clientes = new ArrayList<Cliente>();
+        clientes.add(c);
+        GeneralUI.listToJson(clientes, "clientes.json");
+    }
+
+    // devuelve el formato necesario para agregar a la tabla de la UI
     public Object[] rowForTable() {
         Object[] row = {this.getNombre(), this.getApellido(), this.getDni(), this.getMemb()};
         return row;

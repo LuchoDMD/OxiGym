@@ -41,6 +41,7 @@ public class GeneralUI {
         return list;
     }
     
+
     public static void listToJson(List<?> list, String filename) {
         File file = new File(filename);
         file.setWritable(true);
@@ -57,13 +58,6 @@ public class GeneralUI {
         }
     }
 
-    public static void addCliente(Cliente c) {
-        List<Cliente> clientes = (List<Cliente>) readListJson("clientes.json");
-        // si el archivo no existe crea una lista vacia
-        if (clientes == null) 
-            clientes = new ArrayList<Cliente>();
-        clientes.add(c);
-        listToJson(clientes, "clientes.json");
-    }
+
     
 }

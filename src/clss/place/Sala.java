@@ -3,6 +3,8 @@ package clss.place;
 import java.util.ArrayList;
 import java.util.List;
 
+import clss.UI.GeneralUI;
+
 // TODO: agregar disponibilidad de horarios | lista de turnos
 public class Sala implements java.io.Serializable
 {
@@ -61,7 +63,34 @@ public class Sala implements java.io.Serializable
         this.disciplinas = disciplinas;
     }
 
+    // agrega salas al archivo salas.json
+    public static void addSala(Sala s) {
+        // lee el archivo salas.json
+        List<Sala> salas = (List<Sala>) GeneralUI.readListJson("salas.json");
+        // si el archivo no existe, crea una lista vacia
+        if (salas == null)
+            salas = new ArrayList<Sala>();
+        // agrega la sala a la lista y le asigna un id único
+        s.setId(salas.size() + 1); // TODO: modificar generador id
+        salas.add(s);
+        // escribe la lista en el archivo salas.json
+        GeneralUI.listToJson(salas, "salas.json");
+    }
 
+    // elimina una sala del archivo salas.json
+    public static void eliminarSala(Sala s) {
+        // lee el archivo salas.json
+        List<Sala> salas = (List<Sala>) GeneralUI.readListJson("salas.json");
+        // elimina la sala de la lista
+        if (salas == null) {
+            return;
+        }
+        if (salas.contains(s)) {
+            salas.remove(s);
+            // escribe la lista en el archivo salas.json
+            GeneralUI.listToJson(salas, "salas.json");
+        }
+    }
 
     @Override
     public String toString()

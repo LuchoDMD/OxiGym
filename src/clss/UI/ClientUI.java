@@ -9,18 +9,12 @@ import clss.use.Membresias;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.*;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 
 
-public class UI extends JFrame {
+public class ClientUI extends JFrame {
 
     private JTable table;
     private DefaultTableModel tableModel;
@@ -28,7 +22,7 @@ public class UI extends JFrame {
     private JButton btnMostrar;
     private JButton btnEliminar;
 
-    public UI() {
+    public ClientUI() {
         // Configurar ventana principal
         setTitle("Clientes");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,7 +109,7 @@ public class UI extends JFrame {
                 int dniInt = Integer.parseInt(dniTexto);
                 int telefonoInt = Integer.parseInt(telefonoTexto);
                 Cliente cliente = new Cliente(nombreTexto, apellidoTexto, dniInt, telefonoInt, m, 0);
-                GeneralUI.addCliente(cliente);
+                Cliente.addCliente(cliente);
 
                 dialog.dispose();
             }
@@ -161,21 +155,19 @@ public class UI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String dniTexto = dni.getText();
                 int dniInt = Integer.parseInt(dniTexto);
-                Cliente c = Cliente.getClientePorDni(dniInt);
-                
-
-                dialog.add(btnAceptar);
                 Cliente.eliminarClientePorDni(dniInt);
-                
+                dialog.dispose();
             }
         });
-        dialog.add(new JLabel("Cliente"));
-        dialog.add(new JTextField());
+        
+        dialog.add(new JLabel("DNI"));
+        dialog.add(dni);
+        dialog.add(btnAceptar);
         dialog.pack();
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }
-
+    
     public static boolean mostrarPanelVerificacion(String texto) {
         int opcion = JOptionPane.showOptionDialog(null, texto, "Verificación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
         return opcion == JOptionPane.YES_OPTION;
