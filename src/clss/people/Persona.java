@@ -1,26 +1,24 @@
 package clss.people;
 
-import clss.use.Telefono;
-
 import java.util.Objects;
 
 public class Persona
 {
     protected String apellido, nombre;
     protected int dni;
-    protected Telefono contacto;
+    protected int telefono;
 
     /** BUILDERS **/
     public Persona()
     {
 
     }
-    public Persona(String apellido, String nombre, int dni, Telefono contacto)
+    public Persona(String apellido, String nombre, int dni, int telefono)
     {
         this.apellido = apellido;
         this.nombre = nombre;
         this.dni = dni;
-        this.contacto = contacto;
+        this.telefono = telefono;
     }
 
     /** GETTERS & SETTERS **/
@@ -34,7 +32,7 @@ public class Persona
         return nombre;
     }
     public void setNombre(String fname) {
-        this.nombre = nombre;
+        this.nombre = fname;
     }
     public int getDni() {
         return dni;
@@ -42,11 +40,11 @@ public class Persona
     public void setDni(int dni) {
         this.dni = dni;
     }
-    public Telefono getContacto() {
-        return contacto;
+    public int getTelefono() {
+        return telefono;
     }
-    public void setContacto(Telefono contacto) {
-        this.contacto = contacto;
+    public void setContacto(int telefono) {
+        this.telefono = telefono;
     }
 
     /** OTHERS **/
@@ -65,6 +63,6 @@ public class Persona
     public String toString() {
         return  "\n>Apellido/Nombre.: "+nombre+" "+apellido+
                 "\n>D.N.I...........: "+dni+
-                "\n>Contacto"+getContacto().toString();
+                "\n>Telefono"+telefono;
     }
 }

@@ -1,7 +1,6 @@
 package clss.people;
 
 import clss.use.Disciplinas;
-import clss.use.Telefono;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,9 +9,9 @@ public class Instructor extends Empleado
     private Disciplinas disciplina;
     private List<Cliente>alumnos; /**Posiblemente puedan usarse una coleccion generica propia**/
 
-    public Instructor(String apellido, String nombre, int dni, Telefono contacto, int sueldoMin, Disciplinas disciplina)
+    public Instructor(String apellido, String nombre, int dni, int telefono, int sueldoMin, Disciplinas disciplina)
     {
-        super(apellido, nombre, dni, contacto, sueldoMin);
+        super(apellido, nombre, dni, telefono, sueldoMin);
         this.disciplina = disciplina;
         this.alumnos= new LinkedList<>();
     }

@@ -95,11 +95,10 @@ public class AdminUI extends GeneralUI implements java.io.Serializable {
         if (salas == null)
             salas = new ArrayList<Sala>();
         // agrega la sala a la lista y le asigna un id único
-        s.setId(salas.size() + 1);
+        s.setId(salas.size() + 1); // TODO: modificar generador id
         salas.add(s);
         // escribe la lista en el archivo salas.json
         listToJson(salas, "salas.json");
-        
     }
 
     

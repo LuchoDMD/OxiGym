@@ -1,12 +1,8 @@
 [ {
-  "apellido" : "Messi",
-  "nombre" : "Lionel",
-  "dni" : 33016244,
-  "contacto" : {
-    "cod_Pais" : 0,
-    "cod_Area" : 0,
-    "num" : 0
-  },
-  "memb" : null,
+  "apellido" : "Lionel",
+  "nombre" : "Messi",
+  "dni" : 2948932,
+  "telefono" : 4324234,
+  "memb" : "GOLD",
   "couta" : 0
 } ]
