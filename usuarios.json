@@ -31,4 +31,15 @@
   "user" : "admin",
   "pass" : "admin",
   "admin" : false
+}, {
+  "apellido" : "Raul",
+  "nombre" : "Raulsito",
+  "dni" : 35629824,
+  "telefono" : "54651489",
+  "sueldo" : 200,
+  "lname" : null,
+  "fname" : null,
+  "user" : "Raul",
+  "pass" : "Raulsito",
+  "admin" : false
 } ]

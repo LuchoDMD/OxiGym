@@ -1,0 +1,13 @@
+[ {
+  "id" : 1,
+  "tipo" : "CANCHA",
+  "disciplinas" : [ ]
+}, {
+  "id" : 2,
+  "tipo" : "PISCINA",
+  "disciplinas" : [ ]
+}, {
+  "id" : 3,
+  "tipo" : "GIMNASIO",
+  "disciplinas" : [ ]
+} ]
