@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import clss.UI.GeneralUI;
+import clss.use.Disciplinas;
 import clss.use.Membresias;
 
 public class Cliente extends Persona
 {
-    private Membresias memb;
+    public static final int cuota= 6000;
     private int couta;
-
-    //private String[] disciplinas;
+    private Disciplinas disciplina;
 
     /** BUILDERS **/
     public Cliente()
@@ -19,25 +19,22 @@ public class Cliente extends Persona
 
     }
 
-    public Cliente(String lname, String fname, int dni, int telefono) {
+    public Cliente(String lname, String fname, int dni, String telefono) {
         super(lname, fname, dni, telefono);
     }
 
-    public Cliente(String lname, String fname, int dni, int telefono, Membresias memb, int couta)
+    public Cliente(String lname, String fname, int dni, String telefono, Disciplinas disciplina)
     {
         super(lname, fname, dni, telefono);
-        this.memb = memb;
-        this.couta = couta;
+        this.disciplina= disciplina;
+        this.couta = cuota;
     }
 
     /** GETTERS & SETTERS **/
-    public Membresias getMemb()
-    {
-        return memb;
-    }
-    public void setMemb(Membresias memb) {
-        this.memb = memb;
-    }
+    public Disciplinas getDisciplina() {return disciplina;}
+
+    public void setDisciplina(Disciplinas disciplina) {this.disciplina = disciplina;}
+
     public int getCouta()
     {
         return couta;
@@ -47,19 +44,8 @@ public class Cliente extends Persona
         this.couta = couta;
     }
 
-    // agrega un cliente al archivo de clientes
-    public static void addCliente(Cliente c) {
-        List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
-        // si el archivo no existe crea una lista vacia
-        if (clientes == null) 
-            clientes = new ArrayList<Cliente>();
-        clientes.add(c);
-        GeneralUI.listToJson(clientes, "clientes.json");
-    }
-
-    // devuelve el formato necesario para agregar a la tabla de la UI
     public Object[] rowForTable() {
-        Object[] row = {this.getNombre(), this.getApellido(), this.getDni(), this.getMemb()};
+        Object[] row = {this.getNombre(), this.getApellido(), this.getDni(), this.getDisciplina()};
         return row;
     }
 
@@ -84,12 +70,21 @@ public class Cliente extends Persona
         }
         return false;
     }
+    // agrega un cliente al archivo de clientes
+    public static void addCliente(Cliente c) {
+        List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
+        // si el archivo no existe crea una lista vacia
+        if (clientes == null) 
+            clientes = new ArrayList<Cliente>();
+        clientes.add(c);
+        GeneralUI.listToJson(clientes, "clientes.json");
+    }
 
     /** OTHERS **/
     @Override
     public String toString() {
         return  super.toString()+
-                ">Membresia: "+ memb.toString()+
+                ">Disciplina: "+ disciplina.toString()+
                 ">Cuota....: "+ couta;
     }
 }

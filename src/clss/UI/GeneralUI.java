@@ -2,7 +2,6 @@ package clss.UI;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -11,8 +10,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import clss.people.Cliente;
 import clss.people.Empleado;
+import clss.people.Usuario;
 import clss.place.Sala;
-import clss.use.Membresias;
 
 public class GeneralUI {
     
@@ -25,7 +24,6 @@ public class GeneralUI {
             return null;
 
         ObjectMapper mapper = new ObjectMapper();
-
         List<?> list = null;
 
         try {
@@ -33,8 +31,8 @@ public class GeneralUI {
                 list = mapper.readValue(file, new TypeReference<List<Cliente>>() {});
             } else if (filename.equals("salas.json")) {
                 list = mapper.readValue(file, new TypeReference<List<Sala>>() {});
-            } else if (filename.equals("empleados.json")) {
-                list = mapper.readValue(file, new TypeReference<List<Empleado>>() {});
+            } else if (filename.equals("usuarios.json")) {
+                list = mapper.readValue(file, new TypeReference<List<Usuario>>() {});
             } else {
                 System.out.println("Error: filename no valido");
             }
@@ -44,7 +42,6 @@ public class GeneralUI {
         return list;
     }
     
-
     public static void listToJson(List<?> list, String filename) {
         File file = new File(filename);
         file.setWritable(true);
@@ -60,7 +57,5 @@ public class GeneralUI {
             file.setWritable(false);
         }
     }
-
-
     
 }

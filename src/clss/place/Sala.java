@@ -5,7 +5,7 @@ import java.util.List;
 
 import clss.UI.GeneralUI;
 
-// TODO: agregar disponibilidad de horarios | lista de turnos
+
 public class Sala implements java.io.Serializable
 {
     private int id; // numero de sala
@@ -90,6 +90,11 @@ public class Sala implements java.io.Serializable
             // escribe la lista en el archivo salas.json
             GeneralUI.listToJson(salas, "salas.json");
         }
+    }
+
+    public Object[] rowForTable() {
+        Object[] row = {this.getId(), this.getTipo()};
+        return row;
     }
 
     @Override

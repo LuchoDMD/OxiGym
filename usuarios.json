@@ -1,0 +1,34 @@
+[ {
+  "apellido" : "Lionel",
+  "nombre" : "Messi",
+  "dni" : 38,
+  "telefono" : "2",
+  "sueldo" : 10,
+  "lname" : null,
+  "fname" : null,
+  "user" : "mes",
+  "pass" : "si",
+  "admin" : false
+}, {
+  "apellido" : "L",
+  "nombre" : "M",
+  "dni" : 44692730,
+  "telefono" : "22353217",
+  "sueldo" : 25000,
+  "lname" : null,
+  "fname" : null,
+  "user" : "lucafu",
+  "pass" : "123",
+  "admin" : false
+}, {
+  "apellido" : "L",
+  "nombre" : "M",
+  "dni" : 44692730,
+  "telefono" : "22353217",
+  "sueldo" : 25000,
+  "lname" : null,
+  "fname" : null,
+  "user" : "admin",
+  "pass" : "admin",
+  "admin" : false
+} ]

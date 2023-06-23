@@ -1,13 +1,8 @@
 package clss.people;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import clss.UI.GeneralUI;
-
 public abstract class Empleado extends Persona
 {
-    private int sueldoMin;
+    int sueldo;
     String lname;
     String fname;
     
@@ -16,44 +11,37 @@ public abstract class Empleado extends Persona
     {
 
     }
-    public Empleado(String lname, String fname, int dni, int telefono, int sueldoMin)
+    public Empleado(String lname, String fname, int dni, String telefono, int sueldoMin)
     {
         super(lname, fname, dni, telefono);
-        this.sueldoMin = sueldoMin;
+        this.sueldo= sueldoMin;
     }
     /** GETTERS & SETTERS **/
-    public int getSueldoMin() {
-        return sueldoMin;
+    public int getSueldo() {
+        return sueldo;
     }
-    public abstract int salarioMensual();
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+    public String getLname() {
+        return lname;
+    }
+    public String getFname() {
+        return fname;
+    }
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+    
     /** OTHERS **/
-
-    // agrega un empleado al archivo de empleados
-    public static void addEmpleado(Empleado e) {
-        List<Empleado> empleados = (List<Empleado>) GeneralUI.readListJson("empleados.json");
-        if (empleados == null)
-            empleados = new ArrayList<Empleado>();
-        empleados.add(e);
-        GeneralUI.listToJson(empleados, "empleados.json");
-    } 
-
-    // elimina un empleado de la lista de empleados y devuelve true si lo logra
-    public static boolean eliminarEmpleado(Empleado e) {
-        List<Empleado> empleados = (List<Empleado>) GeneralUI.readListJson("empleados.json");
-        if (empleados == null)
-            return false;
-        if (empleados.remove(e)) {
-            GeneralUI.listToJson(empleados, "empleados.json");
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public String toString() {
-        
         return "Empleado{" +
-                "sueldoMin=" + sueldoMin +
+                "sueldoMin=" + sueldo +
                 ", lname='" + lname + '\'' +
                 ", fname='" + fname + '\'' +
                 ", dni=" + dni +

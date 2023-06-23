@@ -6,14 +6,14 @@ public class Persona
 {
     protected String apellido, nombre;
     protected int dni;
-    protected int telefono;
+    protected String telefono;
 
     /** BUILDERS **/
     public Persona()
     {
 
     }
-    public Persona(String apellido, String nombre, int dni, int telefono)
+    public Persona(String apellido, String nombre, int dni, String telefono)
     {
         this.apellido = apellido;
         this.nombre = nombre;
@@ -40,10 +40,10 @@ public class Persona
     public void setDni(int dni) {
         this.dni = dni;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setContacto(int telefono) {
+    public void setContacto(String telefono) {
         this.telefono = telefono;
     }
 
