@@ -100,10 +100,6 @@ public class Sala implements java.io.Serializable
     @Override
     public String toString()
     {
-        return "Sala{" +
-                "id=" + id +
-                ", tipo=" + tipo +
-                ", disciplinas=" + disciplinas +
-                '}';
+        return id+ "-" + tipo;
     }
 }

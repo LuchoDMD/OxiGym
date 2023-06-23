@@ -83,9 +83,7 @@ public class Cliente extends Persona
     /** OTHERS **/
     @Override
     public String toString() {
-        return  super.toString()+
-                ">Disciplina: "+ disciplina.toString()+
-                ">Cuota....: "+ couta;
+        return String.valueOf(dni);
     }
 }
 

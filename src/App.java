@@ -1,4 +1,6 @@
 import clss.UI.UILogin;
+import clss.place.Sala;
+import clss.place.TipoSalas;
 
 public class App
 {
@@ -7,6 +9,4 @@ public class App
         uiLogin.setVisible(true);
     }
 }
-/** BUILDERS **/
-/** GETTERS & SETTERS **/
-/** OTHERS **/
+

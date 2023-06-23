@@ -1,6 +1,7 @@
 package clss.UI;
 
 import clss.people.Cliente;
+import clss.place.Sala;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -97,7 +98,8 @@ public class CalendarioGUI extends JFrame {
                 //String quienTexto = txtQuien.getText();
                 //List<Cliente> clientes = (List<Cliente>) GeneralUI.readListJson("clientes.json");
                 String quienTexto = StacticasG.seleccionarBoxListaStringTexto(StacticasG.listaAListaString(new ArrayList<>((List<Cliente>) GeneralUI.readListJson("clientes.json"))),"Selector por dni");
-                String paraTexto = txtPara.getText();
+                String paraTexto = StacticasG.seleccionarBoxListaStringTexto(StacticasG.listaAListaString(new ArrayList<>((List<Sala>) GeneralUI.readListJson("salas.json"))),"Selector Sala");
+                //String paraTexto = txtPara.getText();
                // String seniaTexto = txtSenia.getText();
 
                 if (fechaTexto.isEmpty() || quienTexto.isEmpty() || paraTexto.isEmpty()) {
@@ -119,7 +121,7 @@ public class CalendarioGUI extends JFrame {
                         calendario.get(fecha).add(turno);
                         mostrarTreeMapEnTabla();
                         escribiEnArchivoTremap();
-                        JOptionPane.showMessageDialog(dialog, "clss.UI.Turno guardar exitosamente.");
+                        JOptionPane.showMessageDialog(dialog, "Turno guardar exitosamente.");
                     }
 
                     dialog.dispose();
@@ -201,7 +203,7 @@ public class CalendarioGUI extends JFrame {
     }
 
     private void eliminarTurno() {
-        JDialog dialog = new JDialog(this, "Eliminar clss.UI.Turno", true);
+        JDialog dialog = new JDialog(this, "Eliminar Turno", true);
         dialog.setLayout(new FlowLayout());
 
         JTextField txtFecha = new JTextField(10);
@@ -232,7 +234,7 @@ public class CalendarioGUI extends JFrame {
                                     tableModel.removeRow(fila);
                                 }
                                 escribiEnArchivoTremap();
-                                JOptionPane.showMessageDialog(dialog, "clss.UI.Turno eliminado exitosamente.");
+                                JOptionPane.showMessageDialog(dialog, "Turno eliminado exitosamente.");
                             }
 
                         } else {
@@ -284,7 +286,7 @@ public class CalendarioGUI extends JFrame {
         return horarios;
     }
     private void escribiEnArchivoTremap(){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\EmA_9\\Desktop\\Programacion\\OxiGym-main (1)\\OxiGym-main\\src\\calendario.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\usuario\\IdeaProjects\\OxiGym\\src\\calendario.txt"))) {
             for (Map.Entry<LocalDate, List<Turno>> entry : calendario.entrySet()) {
                 LocalDate fecha = entry.getKey();
                 List<Turno> turnos = entry.getValue();
@@ -302,9 +304,9 @@ public class CalendarioGUI extends JFrame {
     }
 
     private void leerEnArchivoTremap() {
-        File esta = new File("C:\\Users\\54223\\Desktop\\OxiGym-main\\calendario.txt");
+        File esta = new File("C:\\Users\\usuario\\IdeaProjects\\OxiGym\\src\\calendario.txt");
         if (esta.exists()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\54223\\Desktop\\OxiGym-main\\calendario.txt"))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\usuario\\IdeaProjects\\OxiGym\\src\\calendario.txt"))) {
                 String line;
                 LocalDate fecha = null;
                 List<Turno> turnos = null;
